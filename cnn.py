@@ -1,4 +1,5 @@
 import timm
+import torch
 import torch.nn as nn
 
 from timm.data import resolve_data_config
@@ -8,6 +9,8 @@ from torchmetrics.classification import Accuracy, Precision, Recall, F1
 from torch import sigmoid
 from torch.optim import Adam
 from pytorch_lightning import LightningModule
+
+from config import IMG_SIZE
 
 
 class ClassificationModel(LightningModule):
@@ -93,3 +96,7 @@ class ClassificationModel(LightningModule):
     def configure_optimizers(self):
         self.optimizer = Adam(self.parameters(), lr=self.hparams.lr)
         return self.optimizer
+    
+    def warmup(self, device):
+        img = torch.rand(1, 3, IMG_SIZE, IMG_SIZE).to(device)
+        self(img)

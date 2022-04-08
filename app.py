@@ -18,6 +18,10 @@ def create_model(device: str):
     path = 'models/model.ckpt'
     return ClassificationModel.load_from_checkpoint(path).to(device)
 device: str = st.radio('Select device', options=['cuda', 'cpu'])
+model = create_model(device)
+model.eval()
+model.warmup(device)
+
 
 # images list
 options = sorted(os.listdir(DSET_BASE_DIR))
@@ -35,7 +39,6 @@ if image_file is not None:
 
 predict_btn = st.button('Predict!')
 if predict_btn:
-    model = create_model(device)
     image = load_image(fname, IMG_SIZE)
     
     img = model.preprocessing_fn(image).unsqueeze(0).to(device)
