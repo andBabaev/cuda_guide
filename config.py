@@ -6,7 +6,7 @@ DEVICE = 'cuda'
 LR = 0.0001
 BATCH_SIZE = 2
 
-DSET_BASE_DIR = '/home/andrey/my_projects/cuda_guide/data/chihuahua-muffin'
+DSET_BASE_DIR = 'data/chihuahua-muffin'
 CLASSES_LIST = ['chihuahua', 'muffin']
 CLASSES_MAP = {class_:idx for idx, class_ in enumerate(CLASSES_LIST)}
 CLASSES_BY_IDX = {idx:class_ for idx, class_ in enumerate(CLASSES_LIST)}

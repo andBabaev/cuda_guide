@@ -1,0 +1,5 @@
+--find-links https://download.pytorch.org/whl/torch_stable.html
+torch==1.11.0+cu113
+timm==0.5.4
+streamlit==1.8.1
+pytorch-lightning==1.6.0

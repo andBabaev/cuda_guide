@@ -1,0 +1,21 @@
+FROM pytorch/pytorch:1.11.0-cuda11.3-cudnn8-runtime
+
+WORKDIR /app
+
+RUN rm -rf /var/lib/apt/lists/* && \
+    yes Y | apt-get purge --auto-remove && \
+    apt-get clean
+
+COPY requirements-app-torch.txt .
+RUN pip install -r requirements-app-torch.txt --no-cache-dir
+
+COPY models/ models/
+COPY app.py .
+COPY cnn.py .
+COPY config.py .
+COPY utils.py .
+COPY data/ data/
+
+EXPOSE 8501
+
+CMD ["streamlit", "run", "app.py"]

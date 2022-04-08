@@ -1,0 +1,12 @@
+--find-links https://download.pytorch.org/whl/cu113
+torch==1.11.0+cu113
+torchvision==0.12.0+cu113
+pytorch-lightning==1.6.0
+Pillow==9.0.1
+jupyter==1.0.0
+matplotlib==3.5.1
+scikit-learn==1.0.2
+albumentations==1.1.0
+timm==0.5.4
+torchmetrics==0.7.3
+streamlit==1.8.1
