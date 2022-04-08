@@ -3,7 +3,7 @@ from time import time
 
 import streamlit as st
 from utils import load_image
-from torch import sigmoid
+from torch import sigmoid, cuda
 
 from cnn import ClassificationModel
 from config import IMG_SIZE, CLASSES_BY_IDX, DSET_BASE_DIR
@@ -18,6 +18,8 @@ def create_model(device: str):
     path = 'models/model.ckpt'
     return ClassificationModel.load_from_checkpoint(path).to(device)
 device: str = st.radio('Select device', options=['cuda', 'cpu'])
+st.text(f"GPU is available: {cuda.is_available()}")
+
 model = create_model(device)
 model.eval()
 model.warmup(device)
