@@ -1,7 +1,5 @@
 # Cuda Guide
 
-A project for MlOps course of ODS
-
 In this project, we will configure CUDA for docker. The repository contains a Streamlit demo application for image classification. Also it contains code for training on pytorch lightning
 
 ## Requirements
