@@ -1,9 +1,8 @@
---find-links https://download.pytorch.org/whl/cu113
+--find-links https://download.pytorch.org/whl/torch_stable.html
 torch==1.11.0+cu113
 torchvision==0.12.0+cu113
 pytorch-lightning==1.6.0
 Pillow==9.0.1
-jupyter==1.0.0
 matplotlib==3.5.1
 scikit-learn==1.0.2
 albumentations==1.1.0
