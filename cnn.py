@@ -29,6 +29,7 @@ class ClassificationModel(LightningModule):
         
         
         config = resolve_data_config({}, model=self.model)
+        self.input_size = config['input_size']
         self.preprocessing_fn = create_transform(**config)
 
         self.loss_fn = nn.BCEWithLogitsLoss()
@@ -98,5 +99,5 @@ class ClassificationModel(LightningModule):
         return self.optimizer
     
     def warmup(self, device):
-        img = torch.rand(1, 3, IMG_SIZE, IMG_SIZE).to(device)
+        img = torch.rand(1, *self.input_size).to(device)
         self(img)
