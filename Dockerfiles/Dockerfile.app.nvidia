@@ -7,8 +7,8 @@ RUN apt update && apt install python3-pip -y && \
     yes Y | apt-get purge   --auto-remove && \
     apt-get clean
 
-COPY requirements-app.txt .
-RUN pip install -r requirements-app.txt --no-cache-dir
+COPY requirements/requirements-app-nvidia.txt requirements-app-nvidia.txt 
+RUN pip install -r requirements-app-nvidia.txt --no-cache-dir
 
 COPY models/ models/
 COPY app.py .

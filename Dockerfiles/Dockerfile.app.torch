@@ -6,7 +6,7 @@ RUN rm -rf /var/lib/apt/lists/* && \
     yes Y | apt-get purge --auto-remove && \
     apt-get clean
 
-COPY requirements-app-torch.txt .
+COPY requirements/requirements-app-torch.txt requirements-app-torch.txt
 RUN pip install -r requirements-app-torch.txt --no-cache-dir
 
 COPY models/ models/
