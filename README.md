@@ -7,7 +7,7 @@ In this guide, we will configure CUDA for docker. The repository contains a Stre
 - Ubuntu 20.04
 - GPU supported by Pytorch
 - Docker
-- Python >= 3.61
+- Python >= 3.6
 - Clone repo and `cd cuda_guide`
 - Donwload the model
     ```
